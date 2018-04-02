@@ -1,0 +1,22 @@
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: spark-rest-controller
+spec:
+  replicas: 1
+  selector:
+    component: spark-rest
+  template:
+    metadata:
+      labels:
+        component: spark-rest
+    spec:
+      containers:
+        - name: spark-rest
+          image: docker.io/anantpukale/cfe:1.1
+          command: ["/start-rest"]
+          ports:
+             - containerPort: 8082
+          resources:
+            requests:
+              cpu: 100m

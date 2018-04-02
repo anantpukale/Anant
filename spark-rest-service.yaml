@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: spark-rest
+spec:
+  ports:
+    - port: 8082
+      targetPort: 8082
+      name: http
+  selector:
+    component: spark-rest
